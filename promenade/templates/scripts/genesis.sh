@@ -47,6 +47,7 @@ set -x
 
 # Terminate background job (tear down exit trap?)
 kill %1
+helm init
 
 set +x
 log

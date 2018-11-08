@@ -16,5 +16,8 @@ exec docker run --rm \
     -v /etc/kubernetes/admin:/etc/kubernetes/admin \
     -w $WORKDIR \
     -e KUBECONFIG=/etc/kubernetes/admin/kubeconfig.yaml \
+    -e HTTP_PROXY=http://one.proxy.att.com:8888 \
+    -e HTTPS_PROXY=http://one.proxy.att.com:8888 \
+    -e NO_PROXY=127.0.0.1,localhost,.cluster.local,10.96.0.0/16,10.97.0.0/16 \
     {{ config['HostSystem:images.helm.helm'] }} \
         $*
